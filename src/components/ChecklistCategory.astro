@@ -1,0 +1,117 @@
+---
+import Icon from "./Icon.astro";
+
+export interface ChecklistItem {
+	title: string;
+	icon: string;
+	items: string[];
+}
+
+export interface Props {
+	category: ChecklistItem;
+}
+
+const { category } = Astro.props;
+
+function sanitizeForId(str: string): string {
+	return str.replace(/[^a-zA-Z0-9-_]/g, "-").toLowerCase();
+}
+
+const categoryId = sanitizeForId(category.title);
+---
+
+<div
+    class="p-6 rounded-lg shadow-lg h-fit transition-all duration-200 hover:shadow-xl bg-background-card/80 backdrop-blur-xs"
+>
+    <h2 class="text-2xl font-bold mb-4 flex items-center gap-3 text-primary">
+        <Icon name={category.icon} size={24} />
+        <span>{category.title}</span>
+    </h2>
+    <ul class="space-y-3">
+        {
+            category.items.map((item) => {
+                const itemId = `${categoryId}-${sanitizeForId(item)}`;
+                return (
+                    <li class="flex items-center space-x-3 group">
+                        <input
+                            type="checkbox"
+                            id={itemId}
+                            class="custom-checkbox"
+                            data-item-id={itemId}
+                        />
+                        <label
+                            for={itemId}
+                            class="cursor-pointer flex-1 text-secondary transition-all duration-200 group-has-[:checked]:text-gray-500 group-has-[:checked]:line-through"
+                        >
+                            {" "}
+                            {item}
+                        </label>
+                    </li>
+                );
+            })
+        }
+    </ul>
+</div>
+
+<script>
+    // Gestion de la persistance locale pour ce composant
+    const STORAGE_KEY = "festivalChecklistState";
+
+    function loadState() {
+        try {
+            const storedState = localStorage.getItem(STORAGE_KEY);
+            return storedState ? JSON.parse(storedState) : {};
+        } catch (error) {
+            console.error("Erreur lors du chargement de l'état:", error);
+            return {};
+        }
+    }
+
+    function saveState(state: any) {
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (error) {
+            console.error("Erreur lors de la sauvegarde de l'état:", error);
+        }
+    }
+
+    function initializeCheckboxes() {
+        const savedState = loadState();
+        const checkboxes =
+            document.querySelectorAll<HTMLInputElement>(".custom-checkbox");
+
+        // Restaurer l'état sauvegardé
+        for (const checkbox of checkboxes) {
+            const id = checkbox.getAttribute("data-item-id");
+            if (id) {
+                const isChecked = savedState[id] || false;
+                checkbox.checked = isChecked;
+            }
+        }
+
+        // Gérer les changements
+        for (const checkbox of checkboxes) {
+            checkbox.addEventListener("change", (event) => {
+                const target = event.target;
+                if (!(target instanceof HTMLInputElement)) return;
+
+                const id = target.getAttribute("data-item-id");
+
+                if (id) {
+                    const isChecked = target.checked;
+
+                    // Sauvegarder l'état
+                    savedState[id] = isChecked;
+                    saveState(savedState);
+                }
+            });
+        }
+    }
+
+    // Initialiser quand le DOM est prêt
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializeCheckboxes);
+    } else {
+        initializeCheckboxes();
+    }
+</script>

@@ -1,1 +1,71 @@
+/* Importation des polices Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Orbitron:wght@700&display=swap");
+
+/* Configuration Tailwind CSS */
 @import "tailwindcss";
+
+/* Configuration du thème Tailwind v4 */
+@theme {
+	/* Couleurs personnalisées du thème */
+	--color-primary: #b5252a; /* Rouge principal pour les textes importants */
+	--color-primary-dark: #9a1f23; /* Variante plus sombre */
+	--color-primary-light: #c7484d; /* Variante plus claire */
+
+	--color-background: #1d1d1b; /* Arrière-plan principal */
+	--color-background-card: #2a2a28; /* Arrière-plan des cartes */
+
+	--color-secondary: #f5efef; /* Textes secondaires */
+	--color-secondary-muted: #e0d5d5; /* Textes moins importants */
+
+	/* Polices personnalisées */
+	--font-sans: "Inter", sans-serif;
+	--font-display: "Orbitron", sans-serif;
+}
+
+/* Styles personnalisés pour le body */
+@layer base {
+	html {
+		font-family: var(--font-sans);
+	}
+	body {
+		background-color: var(--color-background);
+		color: var(--color-secondary);
+	}
+
+	h1,
+	h2 {
+		font-family: var(--font-display);
+	}
+}
+
+/* Style personnalisé pour les checkboxes */
+@layer components {
+	.custom-checkbox {
+		appearance: none;
+		-webkit-appearance: none;
+		height: 1.25rem;
+		width: 1.25rem;
+		min-width: 1.25rem;
+		background-color: var(--color-background-card);
+		border: 1px solid #4a4a48;
+		border-radius: 0.25rem;
+		cursor: pointer;
+		display: inline-block;
+		position: relative;
+	}
+
+	.custom-checkbox:checked {
+		background-color: var(--color-primary);
+		border-color: var(--color-primary);
+	}
+
+	.custom-checkbox:checked::after {
+		content: "✔";
+		font-size: 0.75rem;
+		color: var(--color-secondary);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}

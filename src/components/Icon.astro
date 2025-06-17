@@ -1,0 +1,33 @@
+---
+import {
+	Tent,
+	Shirt,
+	Sparkles,
+	Car,
+	Heart,
+	Ticket,
+	DollarSign,
+} from "@lucide/astro";
+
+export interface Props {
+	name: string;
+	class?: string;
+	size?: number;
+}
+
+const { name, class: className = "", size = 24 } = Astro.props;
+
+const iconComponents = {
+	tent: Tent,
+	tshirt: Shirt,
+	sparkle: Sparkles,
+	car: Car,
+	firstAid: Heart,
+	ticket: Ticket,
+	money: DollarSign,
+};
+
+const IconComponent = iconComponents[name as keyof typeof iconComponents];
+---
+
+{IconComponent && <IconComponent class={className} size={size} />}

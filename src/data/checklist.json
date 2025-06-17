@@ -1,0 +1,75 @@
+{
+	"categories": [
+		{
+			"title": "Camping",
+			"icon": "tent",
+			"items": ["Bouchons d'oreilles pour dormir"]
+		},
+		{
+			"title": "Vêtements",
+			"icon": "tshirt",
+			"items": [
+				"Vetements amples, légers, respirants",
+				"Une tenue chaude ( au cas où ) : sweat, pull, pantalon",
+				"Poncho imperméable",
+				"Pyjama, claquettes",
+				"Chapeau/casquette/bob à piques",
+				"Soutiens-gorge"
+			]
+		},
+		{
+			"title": "Hygiène",
+			"icon": "sparkle",
+			"items": [
+				"Brosse à cheveux",
+				"Déodorant",
+				"Maquillage",
+				"Démaquillant",
+				"Serviette de bain",
+				"Savon, shampoing, gel douche",
+				"Kit de rasage",
+				"Papier toilette",
+				"Brosse à dents, dentifrice"
+			]
+		},
+		{
+			"title": "Trajet",
+			"icon": "car",
+			"items": [
+				"Billets de train",
+				"Déplacement domicile - Gare",
+				"Justificatifs",
+				"Prévoir de quoi s'occuper (livres, musique, jeux)",
+				"Snacks & boissons",
+				"Déplacement Gare - Festival"
+			]
+		},
+		{
+			"title": "Santé",
+			"icon": "firstAid",
+			"items": [
+				"Pansements + medocs",
+				"Compeed",
+				"Mouchoirs",
+				"Crème solaire",
+				"Crème anti frottement",
+				"Bouchons d'oreilles",
+				"Chaussures confortables",
+				"Semelles",
+				"Lunettes de soleil",
+				"Pastilles pour la gorge"
+			]
+		},
+		{
+			"title": "Concert",
+			"icon": "ticket",
+			"items": [
+				"Billets imprimés",
+				"Établir la liste des groupes qu'on veut voir",
+				"Gourdes",
+				"Dragibus",
+				"Avoir un max de fun <3"
+			]
+		}
+	]
+}

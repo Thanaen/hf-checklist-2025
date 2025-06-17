@@ -1,16 +1,41 @@
 ---
 import "../styles/global.css";
+import { Image } from "astro:assets";
+import ChecklistCategory from "../components/ChecklistCategory.astro";
+import checklistData from "../data/checklist.json";
+import bgBody from "../images/bg_body.jpg";
+import headerImage from "../images/header.png";
 ---
 
-<html lang="en">
+<html lang="fr" class="h-full">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Check-List Hellfest 2025</title>
+		<meta name="description" content="Check-list complète pour préparer le Hellfest 2025 - camping, vêtements, hygiène, trajet, santé, concert et budget" />
 	</head>
-	<body>
-		<h1>Astro</h1>
+	<body class="h-full bg-fixed bg-contain" style=`background-image: url(${bgBody.src})`>
+		<!-- En-tête avec image - pleine largeur -->
+		<header class="w-full">
+			<Image 
+				src={headerImage} 
+				alt="Festival Check-List Header" 
+				class="w-full h-auto"
+			/>
+		</header>
+
+		<!-- Contenu principal avec contraintes de largeur et padding -->
+		<div class="max-w-7xl mx-auto p-4 sm:p-6 md:p-8">
+			<!-- Layout en colonnes - Maximum 2 colonnes -->
+			<main class="columns-1 lg:columns-2 gap-6 md:gap-8 space-y-0">
+				{checklistData.categories.map((category) => (
+					<div class="break-inside-avoid mb-6 md:mb-8">
+						<ChecklistCategory category={category} />
+					</div>
+				))}
+			</main>
+		</div>
 	</body>
 </html>
