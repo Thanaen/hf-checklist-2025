@@ -1,0 +1,32 @@
+<div
+    class="box fixed right-8 bottom-8 lg:right-16 lg:bottom-16 rounded-full backdrop-blur-md py-2 px-4 bg-gray-200/10 drop-shadow-md"
+>
+    🔥 Mission accomplie 🔥
+</div>
+
+<style>
+    .box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px;
+        border: 2px solid #0000; 
+        background:
+            linear-gradient(var(--color-background), var(--color-background))
+                padding-box,
+            linear-gradient(var(--angle), #070707, #b5252a) border-box;
+        animation: 8s rotate linear infinite;
+    }
+
+    @keyframes rotate {
+        to {
+            --angle: 360deg;
+        }
+    }
+
+    @property --angle {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+    }
+</style>
