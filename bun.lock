@@ -5,10 +5,10 @@
     "": {
       "name": "hf-checklist-2025",
       "dependencies": {
-        "@lucide/astro": "^0.515.0",
-        "@tailwindcss/vite": "^4.1.10",
+        "@lucide/astro": "^0.577.0",
+        "@tailwindcss/vite": "^4.2.2",
         "astro": "6.0.6",
-        "tailwindcss": "^4.1.10",
+        "tailwindcss": "^4.2.2",
       },
       "devDependencies": {
         "@biomejs/biome": "1.9.4",
@@ -177,7 +177,7 @@
 
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.25", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ=="],
 
-    "@lucide/astro": ["@lucide/astro@0.515.0", "", { "peerDependencies": { "astro": "^4 || ^5" } }, "sha512-7zmKR6FGLhs3ZsRKsx48LNPbnRPthUzHt42yafiBttx9hNhncjxOYJK+P+OoEOrvijfz392BK9jNebk2boZzqA=="],
+    "@lucide/astro": ["@lucide/astro@0.577.0", "", { "peerDependencies": { "astro": "^4 || ^5" } }, "sha512-xZcdx+MyYXY74cBzFxr9N49SlofbGjCVD9GxJZcJA40PJvJSLWSeJpD9bgKFcZfFxf1QXkEYaR6BnCS+0lek8Q=="],
 
     "@oslojs/encoding": ["@oslojs/encoding@1.1.0", "", {}, "sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ=="],
 
