@@ -9,9 +9,9 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@lucide/astro": "^0.515.0",
+		"@lucide/astro": "^0.577.0",
 		"@tailwindcss/vite": "^4.2.2",
-		"astro": "6.0.6",
+		"astro": "6.1.2",
 		"tailwindcss": "^4.2.2"
 	},
 	"trustedDependencies": ["@tailwindcss/oxide"],
